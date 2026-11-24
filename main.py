@@ -37,6 +37,9 @@ def main() -> None:
     if not 1 <= len(LINE) <= 200:
         print(f"entry line is {len(LINE)} chars, must be 1-200", file=sys.stderr)
         raise SystemExit(1)
+    if "\n" in LINE or "\r" in LINE:
+        print("entry line must be a single line", file=sys.stderr)
+        raise SystemExit(1)
     if not LINE.strip():
         print("entry line is only white space", file=sys.stderr)
         raise SystemExit(1)
